@@ -7,12 +7,12 @@ const getState = ({ getStore, getActions, setStore }) => {
 		},
 		actions: {
 			getAllPeople:() => {
-				const setAllPoeple = getStore()
-				.then(response => { response.json()})
-				.then(json => {setStore ({people:json.result})})
-				.catch((error  => {
-					console.log(error);
-				})),
+				const Store = getStore()
+					.then(response => response.json())
+					.then(data => {
+						setStore({ People: data.results });
+					});
+
 			}
 		}
 	}
